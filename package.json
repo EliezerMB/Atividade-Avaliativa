@@ -4,7 +4,7 @@
   "description": "Prova de PPI",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/EliezerMB/Atividade-Avaliativa/issues"
   },
-  "homepage": "https://github.com/EliezerMB/Atividade-Avaliativa#readme"
+  "homepage": "https://github.com/EliezerMB/Atividade-Avaliativa#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
 }
