@@ -12,7 +12,7 @@ app.use(session({
     cookie: {
         secure: false,
         httpOnly: true,
-        maxAge: 1000 * 60 * 30 // 30 minutos
+        maxAge: 1000 * 60 * 30,
     }
 }));
 
@@ -31,7 +31,6 @@ function verificarAutenticacao(req, res, next) {
     }
 }
 
-// Rotas
 app.get('/login', (req, res) => {
     res.redirect('/login.html');
 });
