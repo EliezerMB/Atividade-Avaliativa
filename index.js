@@ -78,13 +78,34 @@ app.get('/logout', (req, res) => {
 app.get('/', verificarAutenticacao, (req, res) => {
     const ultimoAcesso = req.cookies['dataHoraUltimoLogin'] || 'Primeiro acesso';
     res.send(`
-        <h1>Menu do Sistema</h1>
-        <p>Último acesso: ${ultimoAcesso}</p>
+        <html>
+        <head>
+        <title>Página Inicial</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        </head>
+        <body>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="/cadastroUsuario.html">Cadastro de Usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/batePapo.html">Sala De Bate-Papo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Encerrar Sessão</a>
+            </li>
+            </ul>
+            <footer>Último Acesso: ${ultimoAcesso}</footer>
+        </body>
+        </html>
+        
+        <!-- <h1>Menu do Sistema</h1>
+        <p>Último Acesso: ${ultimoAcesso}</p>
         <ul>
             <li><a href="/cadastroUsuario.html">Cadastro de Usuários</a></li>
             <li><a href="/batePapo.html">Bate-papo</a></li>
             <li><a href="/logout">Sair</a></li>
-        </ul>
+        </ul>-->
     `);
 });
 
