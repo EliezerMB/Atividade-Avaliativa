@@ -46,6 +46,20 @@ app.post('/login', (req, res) => {
         res.redirect('/');
     } else {
         res.send(`
+            <html>
+            <head>
+            <title>Erro</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            </head>
+            <body>
+            <div>
+            <div class="alert alert-danger" role="alert">
+                 Usuário ou senha inválidos! Favor Tentar Novamente 
+            </div>
+            <button type="button" class="btn btn-primary" a href="/login.html >Tentar Novamente</button>
+            </div>
+            </body>
+            </html>
             <div>
                 <p>Usuário ou senha inválidos!</p>
                 <a href="/login.html">Tentar novamente</a>
