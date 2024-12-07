@@ -111,7 +111,40 @@ app.get('/', verificarAutenticacao, (req, res) => {
 
 app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     res.send(`
+
+        <html>
+        <head>
+        <title>Cadastro De Usuarios</title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        </head>
+        <body>
         <form method="POST" action="/cadastrarUsuario">
+                    <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput"> Nome:</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="nome" placeholder="Ex:Joao Batista Santos">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Apelido:</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" name="apelido" placeholder="Jao B.">
+            </div>
+            </form>
+            <label>Data de Nascimento: <input type="date" name="dataNascimento" /></label>
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+            </form>
+            <h2>Usuários Cadastrados</h2>
+            <div class="card">
+                <div class="card-body">
+                   <ul>
+                        ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" a href="/"> Voltar ao Cadastro </button>
+        </body>
+        </html>
+
+        <!--<form method="POST" action="/cadastrarUsuario">
             <label>Nome: <input type="text" name="nome" /></label>
             <label>Data de Nascimento: <input type="date" name="dataNascimento" /></label>
             <label>Apelido: <input type="text" name="apelido" /></label>
@@ -122,6 +155,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
             ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
         </ul>
         <a href="/">Voltar ao Menu</a>
+        -->
     `);
 });
 
