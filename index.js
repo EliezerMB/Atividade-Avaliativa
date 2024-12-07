@@ -123,6 +123,10 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
                 <input type="text" class="form-control" id="formGroupExampleInput" name="nome" placeholder="Ex: Joao Batista Santos">
             </div>
             <div class="form-group">
+                <label for="formGroupExampleInput">Email:</label>
+                <input type="email" class="form-control" id="formGroupExampleInput" name="email" placeholder="Ex:5423joaobatistasantos@gamil.com">
+            </div>
+            <div class="form-group">
                 <label for="formGroupExampleInput2">Apelido:</label>
                 <input type="text" class="form-control" id="formGroupExampleInput2" name="apelido" placeholder="Jao B.">
             </div>
@@ -135,7 +139,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     
     <h2>Usuários Cadastrados</h2>
     <ul>
-        ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome}) Data de Cadastro:${u.dataNascimento} </li>`).join('')}
+        ${listaUsuarios.map(u => `<li>${u.apelido} ${u.email} (${u.nome}) Data de Cadastro:${u.dataNascimento} </li>`).join('')}
     </ul>
     <br>
     <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
@@ -158,15 +162,15 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
 });
 
 app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
-    const { nome, dataNascimento, apelido } = req.body;
-    if (!nome || !dataNascimento || !apelido) {
+    const { nome, dataNascimento, apelido, email } = req.body;
+    if (!nome || !dataNascimento || !apelido || !email) {
         return res.send(`
             <p>Todos os campos são obrigatórios!</p>
             <a href="/cadastroUsuario.html">Voltar</a>
         `);
     }
 
-    listaUsuarios.push({ nome, dataNascimento, apelido });
+    listaUsuarios.push({ nome, dataNascimento, apelido , email });
     res.redirect('/cadastroUsuario.html');
 });
 
