@@ -111,36 +111,36 @@ app.get('/', verificarAutenticacao, (req, res) => {
 
 app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     res.send(`
-
         <html>
         <head>
         <title>Cadastro De Usuarios</title>
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         </head>
         <body>
-        <form method="POST" action="/cadastrarUsuario">
-                    <form>
+            <form method="POST" action="/cadastrarUsuario">
             <div class="form-group">
-                <label for="formGroupExampleInput"> Nome:</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" name="nome" placeholder="Ex:Joao Batista Santos">
+                <label for="formGroupExampleInput">Nome:</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" name="nome" placeholder="Ex: Joao Batista Santos">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Apelido:</label>
                 <input type="text" class="form-control" id="formGroupExampleInput2" name="apelido" placeholder="Jao B.">
             </div>
-            </form>
-            <label>Data de Nascimento: <input type="date" name="dataNascimento" /></label>
-            <br>
+            <div class="form-group">
+                <label>Data de Nascimento:</label>
+                <input type="date" class="form-control" name="dataNascimento" />
+            </div>
             <button type="submit" class="btn btn-success">Cadastrar</button>
-            </form>
-            <h2>Usuários Cadastrados</h2>
-                <ul>
-                     ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
-                 </ul>
-            <br>
-            <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
-        </body>
-        </html>
+        </form>
+    
+    <h2>Usuários Cadastrados</h2>
+    <ul>
+        ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
+    </ul>
+    <br>
+    <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
+</body>
+</html>
 
         <!--<form method="POST" action="/cadastrarUsuario">
             <label>Nome: <input type="text" name="nome" /></label>
