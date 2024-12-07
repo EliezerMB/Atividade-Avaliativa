@@ -134,13 +134,9 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
             <button type="submit" class="btn btn-success">Cadastrar</button>
             </form>
             <h2>Usuários Cadastrados</h2>
-            <div class="card">
-                <div class="card-body">
-                   <ul>
-                        ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
+                <ul>
+                     ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
+                 </ul>
             <br>
             <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
         </body>
