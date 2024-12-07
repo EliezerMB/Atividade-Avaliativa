@@ -60,10 +60,12 @@ app.post('/login', (req, res) => {
             </div>
             </body>
             </html>
+            <!--
             <div>
                 <p>Usuário ou senha inválidos!</p>
                 <a href="/login.html">Tentar novamente</a>
             </div>
+            -->
         `);
     }
 });
