@@ -174,7 +174,7 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
                 <h1 class="display-4">Erro Detectado</h1>
                 <p class="lead">Todos os campos são obrigatórios!.</p>
                 <hr class="my-4">
-                <p>Por Favor Verificar os Dado de Cadastro, Pois Algun se encontra preechido de fprm errada  </p>
+                <p>Por Favor Verificar os Dado de Cadastro, Pois Algun se encontra preechido de forma errada  </p>
                 <a class="btn btn-primary btn-lg" href="/cadastroUsuario.html" role="button">Voltar</a>
             </div>
             </body>
