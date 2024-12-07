@@ -56,7 +56,7 @@ app.post('/login', (req, res) => {
             <div class="alert alert-danger" role="alert">
                  Usuário ou senha inválidos! Favor Tentar Novamente 
             </div>
-            <button type="button" class="btn btn-primary" a href="/login.html >Tentar Novamente</button>
+            <a href="/login.html" class="btn btn-primary">Tentar Novamente</a>
             </div>
             </body>
             </html>
