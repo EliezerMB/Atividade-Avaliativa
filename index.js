@@ -45,7 +45,7 @@ app.post('/login', (req, res) => {
         });
         res.redirect('/');
     } else {
-        res.send(`
+        res.send(`/*
             <html>
             <head>
             <title>Erro</title>
@@ -59,7 +59,7 @@ app.post('/login', (req, res) => {
             <a href="/login.html" class="btn btn-primary">Tentar Novamente</a>
             </div>
             </body>
-            </html>
+            </html>*/
             <div>
                 <p>Usuário ou senha inválidos!</p>
                 <a href="/login.html">Tentar novamente</a>
