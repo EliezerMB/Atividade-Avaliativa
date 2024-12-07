@@ -130,6 +130,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
             </div>
             </form>
             <label>Data de Nascimento: <input type="date" name="dataNascimento" /></label>
+            <br>
             <button type="submit" class="btn btn-success">Cadastrar</button>
             </form>
             <h2>Usuários Cadastrados</h2>
@@ -140,7 +141,8 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
                     </ul>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" a href="/"> Voltar ao Cadastro </button>
+            <br>
+            <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
         </body>
         </html>
 
