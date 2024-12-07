@@ -139,7 +139,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     
     <h2>Usuários Cadastrados</h2>
     <ul>
-        ${listaUsuarios.map(u => `<li>${u.apelido} ${u.email} (${u.nome}) Data de Cadastro:${u.dataNascimento} </li>`).join('')}
+        ${listaUsuarios.map(u => `<li>Apelido:${u.apelido} ||Nome:${u.email} ||E-mail:(${u.nome}) ||Data de Cadastro:${u.dataNascimento} </li>`).join('')}
     </ul>
     <br>
     <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
@@ -165,8 +165,24 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
     const { nome, dataNascimento, apelido, email } = req.body;
     if (!nome || !dataNascimento || !apelido || !email) {
         return res.send(`
-            <p>Todos os campos são obrigatórios!</p>
-            <a href="/cadastroUsuario.html">Voltar</a>
+            <html>
+            <head>
+             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            </head>
+            <body>
+            <div class="jumbotron">
+                <h1 class="display-4">Erro Detectado</h1>
+                <p class="lead">Todos os campos são obrigatórios!.</p>
+                <hr class="my-4">
+                <p>Por Favor Verificar os Dado de Cadastro, Pois Algun se encontra preechido de fprm errada  </p>
+                <a class="btn btn-primary btn-lg" href="/cadastroUsuario.html" role="button">Voltar</a>
+            </div>
+            </body>
+            </html>
+
+
+            <!--<p>Todos os campos são obrigatórios!</p>
+            <a href="/cadastroUsuario.html">Voltar</a>-->
         `);
     }
 
