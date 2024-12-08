@@ -192,7 +192,33 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
 
 app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
     res.send(`
-        <h1>Bate-papo</h1>
+            <html>
+            <head>
+            <title>Sala De Bate-Papo</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            </head>
+            <body>
+            <form method="POST" action="/postarMensagem">
+            <label>Usuário:
+                <select name="usuario">
+                    ${listaUsuarios.map(u => `<option value="${u.apelido}">${u.apelido}</option>`).join('')}
+                </select>
+            </label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Mensagem</span>
+            </div>
+                <textarea class="form-control" nome="mensagem" aria-label="Com textarea"></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <ul>
+                    ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
+                </ul>
+            </div>
+            <a href="/" class="btn btn-primary">Voltar ao Menu</a>
+            </body>
+            </html>
+
+       <!-- <h1>Bate-papo</h1>
         <form method="POST" action="/postarMensagem">
             <label>Usuário:
                 <select name="usuario">
@@ -206,7 +232,7 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
         <ul>
             ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
         </ul>
-        <a href="/">Voltar ao Menu</a>
+        <a href="/">Voltar ao Menu</a>--> 
     `);
 });
 
