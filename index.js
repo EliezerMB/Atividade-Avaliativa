@@ -139,7 +139,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     
     <h2>Usuários Cadastrados</h2>
     <ul>
-        ${listaUsuarios.map(u => `<li>Apelido:${u.apelido} ||E-mail:${u.email} ||Nome:(${u.nome}) ||Data de Cadastro:${u.dataNascimento} </li>`).join('')}
+        ${listaUsuarios.map(u => `<li>Apelido:${u.apelido} ||Nome:(${u.nome}) ||Data de Nacimento:${u.dataNascimento} <br> E-mail:${u.email}  </li>`).join('')}
     </ul>
     <br>
     <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
@@ -174,7 +174,7 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
                 <h1 class="display-4">Erro Detectado</h1>
                 <p class="lead">Todos os campos são obrigatórios!.</p>
                 <hr class="my-4">
-                <p>Por Favor Verificar os Dado de Cadastro, Pois Algun se encontra preechido de forma errada  </p>
+                <p>Por Favor Verificar os Dado de Cadastro, Pois Algun Encontra-se Preechido de forma Erradas</p>
                 <a class="btn btn-primary btn-lg" href="/cadastroUsuario.html" role="button">Voltar</a>
             </div>
             </body>
@@ -192,7 +192,6 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
 
 app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
     res.send(`
-            html
 <html>
 <head>
     <title>Sala De Bate-Papo</title>
@@ -214,6 +213,7 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
             </div>
             <textarea class="form-control" name="mensagem" aria-label="Com textarea"></textarea>
         </div>
+        <br>
         <button type="submit" class="btn btn-primary">Enviar</button>
         <ul>
             ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
@@ -247,8 +247,24 @@ app.post('/postarMensagem', verificarAutenticacao, (req, res) => {
     const { usuario, mensagem } = req.body;
     if (!usuario || !mensagem) {
         return res.send(`
-            <p>Usuário e mensagem são obrigatórios!</p>
-            <a href="/batePapo.html">Voltar</a>
+                <html>
+            <head>
+             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            </head>
+            <body>
+            <div class="jumbotron">
+                <h1 class="display-4">Erro Detectado</h1>
+                <p class="lead">Usuário e mensagem são obrigatórios!</p>
+                <hr class="my-4">
+                <p>Por Favor Selecionar Um Ususario Para Envia a Mensagens Ou O envio de Mensagens Em Branco Nao é Permitido Favor Verificar as Duas Circunstâncias </p>
+                <a class="btn btn-primary btn-lg" href="/cadastroUsuario.html" role="button">Voltar</a>
+            </div>
+            </body>
+            </html>
+
+
+            <!--<p>Usuário e mensagem são obrigatórios!</p>
+            <a href="/batePapo.html">Voltar</a>-->
         `);
     }
 
