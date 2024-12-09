@@ -211,12 +211,16 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
                 <div class="input-group-prepend">
                     <span class="input-group-text">Mensagem</span>
             </div>
+
+            <br>
                 <textarea class="form-control" nome="mensagem" aria-label="Com textarea"></textarea>
                 <button type="submit" class="btn btn-primary">Enviar</button>
                 <ul>
                     ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
                 </ul>
             </div>
+
+            <br>
             <a href="/" class="btn btn-primary">Voltar ao Menu</a>
             </body>
             </html>
