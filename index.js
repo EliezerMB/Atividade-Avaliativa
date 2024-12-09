@@ -207,11 +207,11 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
                 </select>
             </label>
             <br>
+            <br>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Mensagem</span>
             </div>
-
             <br>
                 <textarea class="form-control" nome="mensagem" aria-label="Com textarea"></textarea>
                 <button type="submit" class="btn btn-primary">Enviar</button>
