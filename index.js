@@ -60,12 +60,6 @@ app.post('/login', (req, res) => {
             </div>
             </body>
             </html>
-            <!--
-            <div>
-                <p>Usuário ou senha inválidos!</p>
-                <a href="/login.html">Tentar novamente</a>
-            </div>
-            -->
         `);
     }
 });
@@ -98,14 +92,6 @@ app.get('/', verificarAutenticacao, (req, res) => {
             <footer>Último Acesso: ${ultimoAcesso}</footer>
         </body>
         </html>
-        
-        <!-- <h1>Menu do Sistema</h1>
-        <p>Último Acesso: ${ultimoAcesso}</p>
-        <ul>
-            <li><a href="/cadastroUsuario.html">Cadastro de Usuários</a></li>
-            <li><a href="/batePapo.html">Bate-papo</a></li>
-            <li><a href="/logout">Sair</a></li>
-        </ul>-->
     `);
 });
 
@@ -145,19 +131,6 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
     <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
 </body>
 </html>
-
-        <!--<form method="POST" action="/cadastrarUsuario">
-            <label>Nome: <input type="text" name="nome" /></label>
-            <label>Data de Nascimento: <input type="date" name="dataNascimento" /></label>
-            <label>Apelido: <input type="text" name="apelido" /></label>
-            <button type="submit">Cadastrar</button>
-        </form>
-        <h2>Usuários cadastrados</h2>
-        <ul>
-            ${listaUsuarios.map(u => `<li>${u.apelido} (${u.nome})</li>`).join('')}
-        </ul>
-        <a href="/">Voltar ao Menu</a>
-        -->
     `);
 });
 
@@ -179,10 +152,6 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
             </div>
             </body>
             </html>
-
-
-            <!--<p>Todos os campos são obrigatórios!</p>
-            <a href="/cadastroUsuario.html">Voltar</a>-->
         `);
     }
 
@@ -223,23 +192,6 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
     </form>
 </body>
 </html>
-
-
-       <!-- <h1>Bate-papo</h1>
-        <form method="POST" action="/postarMensagem">
-            <label>Usuário:
-                <select name="usuario">
-                    ${listaUsuarios.map(u => `<option value="${u.apelido}">${u.apelido}</option>`).join('')}
-                </select>
-            </label>
-            <label>Mensagem: <input type="text" name="mensagem" /></label>
-            <button type="submit">Enviar</button>
-        </form>
-        <h2>Mensagens</h2>
-        <ul>
-            ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
-        </ul>
-        <a href="/">Voltar ao Menu</a>--> 
     `);
 });
 
@@ -261,10 +213,6 @@ app.post('/postarMensagem', verificarAutenticacao, (req, res) => {
             </div>
             </body>
             </html>
-
-
-            <!--<p>Usuário e mensagem são obrigatórios!</p>
-            <a href="/batePapo.html">Voltar</a>-->
         `);
     }
 
