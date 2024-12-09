@@ -128,7 +128,7 @@ app.get('/cadastroUsuario.html', verificarAutenticacao, (req, res) => {
         ${listaUsuarios.map(u => `<li>Apelido:${u.apelido} ||Nome:(${u.nome}) ||Data de Nacimento:${u.dataNascimento} <br> E-mail:${u.email}  </li>`).join('')}
     </ul>
     <br>
-    <a href="/" class="btn btn-primary">Voltar ao Cadastro</a>
+    <a href="/" class="btn btn-primary">Voltar ao Menu</a>
 </body>
 </html>
     `);
