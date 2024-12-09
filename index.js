@@ -192,38 +192,38 @@ app.post('/cadastrarUsuario', verificarAutenticacao, (req, res) => {
 
 app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
     res.send(`
-            <html>
-            <head>
-            <title>Sala De Bate-Papo</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-            </head>
-            <body>
-            <form method="POST" action="/postarMensagem">
-            <h1> Sala de Bate-Papo</h1>
-            <br>
-            <label>Usuário:
-                <select name="usuario">
-                    ${listaUsuarios.map(u => `<option value="${u.apelido}">${u.apelido}</option>`).join('')}
-                </select>
-            </label>
-            <br>
-            <br>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Mensagem</span>
+            html
+<html>
+<head>
+    <title>Sala De Bate-Papo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <form method="POST" action="/postarMensagem">
+        <h1> Sala de Bate-Papo</h1>
+        <br>
+        <label>Usuário:
+            <select name="usuario">
+                ${listaUsuarios.map(u => `<option value="${u.apelido}">${u.apelido}</option>`).join('')}
+            </select>
+        </label>
+        <br><br>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Mensagem</span>
             </div>
-            <br>
-                <textarea class="form-control" nome="mensagem" aria-label="Com textarea"></textarea>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <ul>
-                    ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
-                </ul>
-            </div>
+            <textarea class="form-control" name="mensagem" aria-label="Com textarea"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <ul>
+            ${listaMensagens.map(m => `<li>${m.dataHora} - ${m.usuario}: ${m.mensagem}</li>`).join('')}
+        </ul>
+        <br>
+        <a href="/" class="btn btn-primary">Voltar ao Menu</a>
+    </form>
+</body>
+</html>
 
-            <br>
-            <a href="/" class="btn btn-primary">Voltar ao Menu</a>
-            </body>
-            </html>
 
        <!-- <h1>Bate-papo</h1>
         <form method="POST" action="/postarMensagem">
