@@ -199,11 +199,14 @@ app.get('/batePapo.html', verificarAutenticacao, (req, res) => {
             </head>
             <body>
             <form method="POST" action="/postarMensagem">
+            <h1> Sala de Bate-Papo</h1>
+            <br>
             <label>Usuário:
                 <select name="usuario">
                     ${listaUsuarios.map(u => `<option value="${u.apelido}">${u.apelido}</option>`).join('')}
                 </select>
             </label>
+            <br>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Mensagem</span>
