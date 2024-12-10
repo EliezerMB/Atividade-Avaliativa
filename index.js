@@ -40,7 +40,8 @@ app.post('/login', (req, res) => {
     if (usuario === 'admin' && senha === '123') {
         req.session.usuarioLogado = true;
         res.cookie('dataHoraUltimoLogin', new Date().toLocaleString(), {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
+            secure: false,
+            maxAge:  1000 * 60 * 30,
             httpOnly: true
         });
         res.redirect('/');
